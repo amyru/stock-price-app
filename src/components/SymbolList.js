@@ -10,8 +10,9 @@ type Props = {
 
 export default function SymbolList({listName, apiList, storeResults}: Props) {
   const handleClick = async e => {
+    e.preventDefault();
     const results = await getSymbolList({apiList});
-    storeResults({apiList, results})
+    await storeResults({apiList, results})
   };
 
   return (
