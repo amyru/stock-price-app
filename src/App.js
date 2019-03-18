@@ -1,25 +1,36 @@
+// @flow
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './styles/App.css';
+import StockListNav from "./components/StockListNav";
 
-class App extends Component {
+class App extends Component<{},{}> {
+  constructor() {
+    super();
+    this.state = {
+      lists: {
+        mostactive: [],
+        gainers: []
+      },
+      selectedCompany: {}
+    }
+  }
+
+  storeResults = ({apiList, results}) => {
+    this.setState(prevState => ({
+      lists: {
+        ...prevState.lists,
+        [apiList]: results
+      }
+    }))
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <h1>Stock Pricing App</h1>
         </header>
+        <StockListNav lists={this.state.lists} storeResults={this.storeResults} />
       </div>
     );
   }
