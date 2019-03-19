@@ -8,6 +8,17 @@ export const getSymbolList = async({apiList}) => {
   return formatResults(results);
 }
 
+export const getCompanyDescription = async({symbol}) => {
+  const company = await getCompany(symbol);
+  return { description: company.description };
+}
+
+const getCompany = async symbol => {
+  const response = await fetch(`${api}/stock/${symbol}/company`);
+  const results = await response.json();
+  return results;
+}
+
 const formatResults = results => {
   return results.map( quote => {
     return {

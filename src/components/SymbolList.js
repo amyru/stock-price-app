@@ -1,6 +1,6 @@
 // @flow
 import React from "react";
-import { getSymbolList } from "../services/api";
+import { getSymbolList, getCompanyDescription } from "../services/api";
 import Select from "react-select";
 
 type Props = {
@@ -18,8 +18,9 @@ export default function SymbolList({list, listName, apiList, storeResults, getSt
     await storeResults({apiList, results})
   };
 
-  const handleChange = selectedOption => {
-    getStockInfo(selectedOption);
+  const handleChange = async selectedOption => {
+    const description = await getCompanyDescription({symbol: selectedOption.symbol});
+    await getStockInfo({...selectedOption, ...description});
   }
 
   return (
@@ -27,6 +28,11 @@ export default function SymbolList({list, listName, apiList, storeResults, getSt
       onChange={handleChange}
       onMenuOpen={getOptions}
       options={list}
+      isLoading={false}
+      noOptionsMessage={()=>"no results"}
+      hideSelectedOptions={true}
+      isSearchable={false}
+      placeholder={listName}
     />
   )
 }
