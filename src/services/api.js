@@ -10,7 +10,7 @@ export const getSymbolList = async({apiList}) => {
 
 export const getCompanyDescription = async({symbol}) => {
   const company = await getCompany(symbol);
-  return { description: company.description };
+  return company.description;
 }
 
 const getCompany = async symbol => {
@@ -22,7 +22,8 @@ const getCompany = async symbol => {
 const formatResults = results => {
   return results.map( quote => {
     return {
-      price: quote.latestPrice,
+      companyName: quote.companyName,
+      latestPrice: quote.latestPrice,
       symbol: quote.symbol,
       label: quote.symbol,
       value: quote.symbol

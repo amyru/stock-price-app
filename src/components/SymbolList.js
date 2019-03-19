@@ -8,10 +8,18 @@ type Props = {
   getStockInfo: Function,
   list: Object,
   listName: string,
+  noResults?: string,
   storeResults: Function
 }
 
-export default function SymbolList({list, listName, apiList, storeResults, getStockInfo}: Props) {
+export default function SymbolList({
+  list,
+  listName,
+  apiList,
+  storeResults,
+  noResults,
+  getStockInfo
+}: Props) {
   const getOptions = async e => {
     if(list.length > 0) return null;
     const results = await getSymbolList({apiList});
@@ -20,7 +28,13 @@ export default function SymbolList({list, listName, apiList, storeResults, getSt
 
   const handleChange = async selectedOption => {
     const description = await getCompanyDescription({symbol: selectedOption.symbol});
-    await getStockInfo({...selectedOption, ...description});
+    await getStockInfo({...selectedOption, description});
+  }
+
+  const noResultsMessage = () => {
+    if(list.length === 0) {
+      return noResults;
+    }
   }
 
   return (
@@ -29,10 +43,12 @@ export default function SymbolList({list, listName, apiList, storeResults, getSt
       onMenuOpen={getOptions}
       options={list}
       isLoading={false}
-      noOptionsMessage={()=>"no results"}
+      noOptionsMessage={noResultsMessage}
       hideSelectedOptions={true}
       isSearchable={false}
       placeholder={listName}
     />
   )
 }
+
+SymbolList.defaultProps = { noResults: "No Results" };
