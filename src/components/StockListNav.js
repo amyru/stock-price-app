@@ -7,19 +7,23 @@ type Props = {
   storeResults: Function
 }
 
-export default function StockListNav({lists, storeResults}: Props) {
+export default function StockListNav({getStockInfo, lists, storeResults}: Props) {
   return (
     <nav>
       <SymbolList
         listName="Most Active"
-        apiList="mostActive"
-        results={lists.mostActive}
-        storeResults={storeResults} />
+        apiList="mostactive"
+        list={lists.mostactive}
+        storeResults={storeResults}
+        getStockInfo={getStockInfo}
+      />
       <SymbolList
         listName="Gainers"
         apiList="gainers"
-        results={lists.gainers}
-        storeResults={storeResults} />
+        list={lists.gainers}
+        storeResults={storeResults}
+        getStockInfo={getStockInfo}
+      />
     </nav>
   )
 }

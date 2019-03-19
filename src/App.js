@@ -11,7 +11,7 @@ class App extends Component<{},{}> {
         mostactive: [],
         gainers: []
       },
-      selectedCompany: {}
+      selectedOption: {}
     }
   }
 
@@ -24,13 +24,17 @@ class App extends Component<{},{}> {
     }))
   }
 
+  getStockInfo = (selectedOption) => {
+    this.setState(() => ({ selectedOption }))
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <h1>Stock Pricing App</h1>
         </header>
-        <StockListNav lists={this.state.lists} storeResults={this.storeResults} />
+        <StockListNav lists={this.state.lists} storeResults={this.storeResults} getStockInfo={this.getStockInfo} />
       </div>
     );
   }
