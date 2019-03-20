@@ -3,11 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.11.2",
     "flow-bin": "^0.95.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-scripts": "2.1.8",
     "react-select": "^2.4.2",
+    "react-test-renderer": "^16.8.4",
     "whatwg-fetch": "^3.0.0"
   },
   "scripts": {

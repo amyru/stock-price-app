@@ -4,6 +4,7 @@ import SymbolList from "./SymbolList";
 
 type Props = {
   lists: object,
+  getStockInfo: Function,
   storeResults: Function
 }
 
