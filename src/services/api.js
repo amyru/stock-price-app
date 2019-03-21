@@ -13,7 +13,7 @@ export const getCompanyDescription = async({symbol}) => {
   return company.description;
 }
 
-const getCompany = async symbol => {
+export const getCompany = async symbol => {
   const response = await fetch(`${api}/stock/${symbol}/company`);
   const results = await response.json();
   return results;
