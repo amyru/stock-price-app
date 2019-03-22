@@ -1,9 +1,9 @@
 import "whatwg-fetch";
 
-const api = "https://api.iextrading.com/1.0";
+const API = "https://api.iextrading.com/1.0";
 
 export const getSymbolList = async({apiList}) => {
-  const response = await fetch(`${api}/stock/market/list/${apiList}`);
+  const response = await fetch(`${API}/stock/market/list/${apiList}`);
   const results = await response.json();
   return formatResults(results);
 }
@@ -14,7 +14,7 @@ export const getCompanyDescription = async({symbol}) => {
 }
 
 export const getCompany = async symbol => {
-  const response = await fetch(`${api}/stock/${symbol}/company`);
+  const response = await fetch(`${API}/stock/${symbol}/company`);
   const results = await response.json();
   return results;
 }
