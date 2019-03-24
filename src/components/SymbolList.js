@@ -1,5 +1,6 @@
 // @flow
-import React from "react";
+import React, { useContext } from "react";
+import { AppContext } from "../App";
 import { getSymbolList, getCompanyDescription } from "../services/api";
 import Select from "react-select";
 
@@ -20,15 +21,20 @@ export default function SymbolList({
   noResults,
   getStockInfo
 }: Props) {
+  const { state, dispatch } = useContext(AppContext);
+
   const getOptions = async e => {
     if(list.length > 0) return null;
-    const results = await getSymbolList({apiList});
-    await storeResults({apiList, results})
+    const results = await getSymbolList({listName});
+    await dispatch({ type: "storeResults", apiList, results })
   };
 
   const handleChange = async selectedOption => {
-    const description = await getCompanyDescription({symbol: selectedOption.symbol});
-    await getStockInfo({...selectedOption, description});
+    const description = await getCompanyDescription({ symbol: selectedOption.symbol });
+    await dispatch({
+      type: "selectedOption",
+      selectedOption: { ...selectedOption, description }
+    });
   }
 
   const noResultsMessage = () => {

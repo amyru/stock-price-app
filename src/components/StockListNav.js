@@ -16,6 +16,7 @@ export default function StockListNav({
   const noResults = "No current activity, please check back later";
 
   return (
+    lists
     <nav>
       <SymbolList
         listName="Most Active"
