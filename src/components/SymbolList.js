@@ -1,5 +1,5 @@
 // @flow
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AppContext } from "../App";
 import { getSymbolList, getCompanyDescription } from "../services/api";
 import Select from "react-select";
@@ -14,11 +14,14 @@ export default function SymbolList({
   listName,
 }: Props) {
   const { dispatch } = useContext(AppContext);
+  const [ isLoading, toggleLoading ] = useState(false);
 
   const getOptions = async e => {
     if(list.length > 0) return null;
+    await toggleLoading(true);
     const results = await getSymbolList({listName});
     await dispatch({ type: "storeResults", listName, results })
+    await toggleLoading(false);
   };
 
   const handleChange = async selectedOption => {
@@ -36,11 +39,12 @@ export default function SymbolList({
       onChange={handleChange}
       onMenuOpen={getOptions}
       options={list}
-      isLoading={false}
+      isLoading={isLoading}
       noOptionsMessage={noResults}
       hideSelectedOptions={true}
       isSearchable={false}
       placeholder={listName}
+      value={listName}
     />
   )
 }

@@ -1,7 +1,12 @@
 // @flow
 import React, { useContext } from "react";
+import styled from 'styled-components/macro';
 import { AppContext } from "../App";
 import SymbolList from "./SymbolList";
+
+const Nav = styled.nav`
+  display: flex;
+`;
 
 export default function StockListNav() {
   const { state: { lists } } = useContext(AppContext);
@@ -17,10 +22,10 @@ export default function StockListNav() {
   };
 
   return (
-    <nav>
+    <Nav>
       { Object.keys(lists).map( key => {
         return renderSymbolList(lists[key])
       }) }
-    </nav>
+    </Nav>
   )
 }

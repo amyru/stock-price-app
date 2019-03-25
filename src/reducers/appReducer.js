@@ -1,6 +1,4 @@
 export function reducer(state, action) {
-  debugger
-  console.log("reducer hit", state, action)
   switch (action.type) {
     case 'storeResults':
       return {
@@ -22,7 +20,6 @@ export function reducer(state, action) {
 }
 
 export function updateList({lists, results, listName}) {
-  debugger
   if(lists[listName]) {
     return { ...lists[listName], list: results };
   }
