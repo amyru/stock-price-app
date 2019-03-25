@@ -2,8 +2,8 @@ import "whatwg-fetch";
 
 const API = "https://api.iextrading.com/1.0";
 
-export const getSymbolList = async({apiList}) => {
-  const response = await fetch(`${API}/stock/market/list/${apiList}`);
+export const getSymbolList = async({listName}) => {
+  const response = await fetch(`${API}/stock/market/list/${formatName(listName)}`);
   const results = await response.json();
   return formatResults(results);
 }
@@ -29,4 +29,8 @@ const formatResults = results => {
       value: quote.symbol
     }
   })
+}
+
+export const formatName = listName => {
+  return listName.toLowerCase().replace(/\s+/g, "");
 }

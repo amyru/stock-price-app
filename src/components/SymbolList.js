@@ -5,28 +5,20 @@ import { getSymbolList, getCompanyDescription } from "../services/api";
 import Select from "react-select";
 
 type Props = {
-  apiList: string,
-  getStockInfo: Function,
   list: Object,
-  listName: string,
-  noResults?: string,
-  storeResults: Function
+  listName: string
 }
 
 export default function SymbolList({
   list,
   listName,
-  apiList,
-  storeResults,
-  noResults,
-  getStockInfo
 }: Props) {
-  const { state, dispatch } = useContext(AppContext);
+  const { dispatch } = useContext(AppContext);
 
   const getOptions = async e => {
     if(list.length > 0) return null;
     const results = await getSymbolList({listName});
-    await dispatch({ type: "storeResults", apiList, results })
+    await dispatch({ type: "storeResults", listName, results })
   };
 
   const handleChange = async selectedOption => {
@@ -37,11 +29,7 @@ export default function SymbolList({
     });
   }
 
-  const noResultsMessage = () => {
-    if(list.length === 0) {
-      return noResults;
-    }
-  }
+  const noResults = () => "No current activity, please check back later";
 
   return (
     <Select
@@ -49,7 +37,7 @@ export default function SymbolList({
       onMenuOpen={getOptions}
       options={list}
       isLoading={false}
-      noOptionsMessage={noResultsMessage}
+      noOptionsMessage={noResults}
       hideSelectedOptions={true}
       isSearchable={false}
       placeholder={listName}
