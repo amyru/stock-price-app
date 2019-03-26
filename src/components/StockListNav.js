@@ -6,6 +6,9 @@ import SymbolList from "./SymbolList";
 
 const Nav = styled.nav`
   display: flex;
+  @media(max-width: 700px) {
+    flex-wrap: wrap;
+  }
 `;
 
 export default function StockListNav() {

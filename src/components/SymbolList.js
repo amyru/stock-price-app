@@ -9,6 +9,13 @@ type Props = {
   listName: string
 }
 
+const customStyles = {
+  container: styles => ({ ...styles, width: "100%", minWidth: "calc(700px/6)" }),
+  menu: styles => ({ ...styles, textAlign: "left" }),
+  control: styles => ({ ...styles, border: "none", alignItems: "left" }),
+  indicatorSeparator: styles => ({ ...styles, display: "none" }),
+};
+
 export default function SymbolList({
   list,
   listName,
@@ -44,9 +51,9 @@ export default function SymbolList({
       hideSelectedOptions={true}
       isSearchable={false}
       placeholder={listName}
+      styles={customStyles}
       value={listName}
     />
   )
 }
-
 SymbolList.defaultProps = { noResults: "No Results" };
