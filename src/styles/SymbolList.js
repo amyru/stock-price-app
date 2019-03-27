@@ -25,6 +25,12 @@ export const customStyles = {
   menu: styles => ({
     ...styles,
     textAlign: "left",
+    borderRadius: "4px",
+    color: "#46505a",
     '@media(max-width: 700px)': { left: 0 }
+  }),
+  placeholder: styles => ({
+    ...styles,
+    color: "#46505a"
   })
 };

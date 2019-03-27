@@ -1,6 +1,7 @@
 import styled, { createGlobalStyle } from 'styled-components/macro';
 
 export const GlobalStyle = createGlobalStyle`
+  html { height: 100%; }
   body {
     background: #e6e6e8;
     height: 100%;
@@ -10,9 +11,13 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  .root {
+    height: 100%;
+  }
 `;
 
 export const AppContainer = styled.div`
+  height: 100%;
   text-align: center;
 `;
 

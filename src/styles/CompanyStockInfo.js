@@ -4,11 +4,14 @@ export const Article = styled.article`
   background: white;
   border: 1px solid #e0d8d8;
   color: #0069a1;
-  height: 100%;
   padding: 1rem;
-  border-radius: 3px;
+  border-radius: 4px;
   max-width: 800px;
   margin: 2rem auto;
+  @media(max-width: 400px) {
+    height: 100%;
+    margin 0;
+  }
 `;
 
 export const H2 = styled.h2`
