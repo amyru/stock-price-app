@@ -10,18 +10,18 @@ import { GlobalStyle, AppContainer, Header } from "./styles/App";
 export const AppContext = createContext(null);
 
 export default function App() {
-  const [state, dispatch] = useReducer(reducer, initialState)
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const renderCompanyInfo = () => {
-    if(Object.keys(state.selectedOption).length === 0) return null;
-    return <CompanyStockInfo company={state.selectedOption} />
-  }
+    if (Object.keys(state.selectedOption).length === 0) return null;
+    return <CompanyStockInfo company={state.selectedOption} />;
+  };
 
   const renderHomepage = () => {
-    if(Object.keys(state.selectedOption).length === 0) {
-      return <Homepage />
+    if (Object.keys(state.selectedOption).length === 0) {
+      return <Homepage />;
     }
-  }
+  };
 
   return (
     <AppContext.Provider value={{ state, dispatch }}>
@@ -30,7 +30,7 @@ export default function App() {
         <Header>
           <h1>Stock Pricing App</h1>
         </Header>
-        <StockListNav  />
+        <StockListNav />
         {renderCompanyInfo()}
         {renderHomepage()}
       </AppContainer>

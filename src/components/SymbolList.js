@@ -8,30 +8,29 @@ import { customStyles } from "../styles/SymbolList";
 type Props = {
   list: Object,
   listName: string
-}
+};
 
-export default function SymbolList({
-  list,
-  listName,
-}: Props) {
+export default function SymbolList({ list, listName }: Props) {
+  const [isLoading, toggleLoading] = useState(false);
   const { dispatch } = useContext(AppContext);
-  const [ isLoading, toggleLoading ] = useState(false);
 
   const getOptions = async e => {
-    if(list.length > 0) return null;
+    if (list.length > 0) return null;
     await toggleLoading(true);
-    const results = await getSymbolList({listName});
-    await dispatch({ type: "storeResults", listName, results })
+    const results = await getSymbolList({ listName });
+    await dispatch({ type: "storeResults", listName, results });
     await toggleLoading(false);
   };
 
   const handleChange = async selectedOption => {
-    const description = await getCompanyDescription({ symbol: selectedOption.symbol });
+    const description = await getCompanyDescription({
+      symbol: selectedOption.symbol
+    });
     await dispatch({
       type: "selectedOption",
       selectedOption: { ...selectedOption, description }
     });
-  }
+  };
 
   const noResults = () => "No current activity, please check back later";
 
@@ -48,6 +47,6 @@ export default function SymbolList({
       styles={customStyles}
       value={listName}
     />
-  )
+  );
 }
 SymbolList.defaultProps = { noResults: "No Results" };

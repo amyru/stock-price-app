@@ -1,28 +1,23 @@
 // @flow
 import React from "react";
-import {
-  Article,
-  H2,
-  H3,
-  Paragraph
- } from "../styles/CompanyStockInfo";
+import { Article, H2, H3, Paragraph } from "../styles/CompanyStockInfo";
 
 type Props = {
   company: Object
-}
+};
 
-export default function CompanyStockInfo({company}: Props) {
+export default function CompanyStockInfo({ company }: Props) {
   const { companyName, description, latestPrice, symbol } = company;
 
   const renderDescription = () => {
-    if(!description) return null;
-    return(
+    if (!description) return null;
+    return (
       <div>
         <H3>Company Description</H3>
         <Paragraph>{description}</Paragraph>
       </div>
-    )
-  }
+    );
+  };
 
   return (
     <Article>
@@ -39,5 +34,5 @@ export default function CompanyStockInfo({company}: Props) {
       </div>
       {renderDescription()}
     </Article>
-  )
+  );
 }

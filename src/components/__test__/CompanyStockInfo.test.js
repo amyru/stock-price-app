@@ -12,12 +12,9 @@ const company = {
 };
 
 describe("CompanyStockInfo", () => {
-  const wrapper = shallow(
-    <CompanyStockInfo company={company} />
-  )
+  const wrapper = shallow(<CompanyStockInfo company={company} />);
 
   it("renders company info card", () => {
     expect(wrapper.find("article")).toHaveLength(1);
   });
-})
-
+});

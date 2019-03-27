@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro';
+import styled from "styled-components/macro";
 
 export const Article = styled.article`
   background: white;
@@ -16,32 +16,35 @@ export const Article = styled.article`
 
 export const H2 = styled.h2`
   color: #0069a1;
-  font-family: "Mercury Text G2 A", "Mercury Text G2 B", "Georgia", "Georgia", Cambria, Times New Roman, Times, serif;
+  font-family: "Mercury Text G2 A", "Mercury Text G2 B", "Georgia", "Georgia",
+    Cambria, Times New Roman, Times, serif;
   font-weight: bold;
   letter-spacing: -0.02em;
   font-size: 2rem;
-  @media(max-width: 400px) {
+  @media (max-width: 400px) {
     font-size: 1.5rem;
   }
 `;
 
 export const H3 = styled.h3`
   color: #0069a1;
-  font-family: "Mercury Text G2 A", "Mercury Text G2 B", "Georgia", "Georgia", Cambria, Times New Roman, Times, serif;
+  font-family: "Mercury Text G2 A", "Mercury Text G2 B", "Georgia", "Georgia",
+    Cambria, Times New Roman, Times, serif;
   font-weight: bold;
   letter-spacing: -0.02em;
   font-size: 1rem;
 `;
 
 export const Paragraph = styled.p`
-  font-family: "Mercury Text G2 A", "Mercury Text G2 B", "Georgia", "Georgia", Cambria, Times New Roman, Times, serif;
+  font-family: "Mercury Text G2 A", "Mercury Text G2 B", "Georgia", "Georgia",
+    Cambria, Times New Roman, Times, serif;
   color: #46505a;
   font-size: 1rem;
 `;
 
 export const Img = styled.img`
   height: 300px;
-  @media(max-width: 700px) {
+  @media (max-width: 700px) {
     height: 200px;
   }
 `;

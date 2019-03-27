@@ -1,20 +1,23 @@
 import * as api from "../api";
 
 describe("getSymbol", () => {
-  it("fetches an array of companies with symbols and price", async() => {
-    const response = [{
-      symbol: "GE",
-      label: "GE",
-      value: "GE",
-      latestPrice: 10.2,
-      companyName: "General Electric Company"
-    },{
-      symbol: "SRNE",
-      label: "SRNE",
-      value: "SRNE",
-      latestPrice: 11.2,
-      companyName: "Sorrento Therapeutics Inc."
-    }];
+  it("fetches an array of companies with symbols and price", async () => {
+    const response = [
+      {
+        symbol: "GE",
+        label: "GE",
+        value: "GE",
+        latestPrice: 10.2,
+        companyName: "General Electric Company"
+      },
+      {
+        symbol: "SRNE",
+        label: "SRNE",
+        value: "SRNE",
+        latestPrice: 11.2,
+        companyName: "Sorrento Therapeutics Inc."
+      }
+    ];
 
     expect.assertions(1);
 
@@ -29,7 +32,7 @@ describe("getSymbol", () => {
 });
 
 describe("getCompanyDescription", () => {
-  it("fetches company description", async() => {
+  it("fetches company description", async () => {
     const response = {
       symbol: "GE",
       companyName: "General Electric Company",
@@ -49,7 +52,7 @@ describe("getCompanyDescription", () => {
 });
 
 describe("getCompany", () => {
-  it("fetches company", async() => {
+  it("fetches company", async () => {
     const response = {
       symbol: "GE",
       companyName: "General Electric Company",

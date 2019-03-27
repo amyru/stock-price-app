@@ -1,10 +1,6 @@
 // @flow
 import React from "react";
-import {
-  Article,
-  Heading,
-  Img
- } from "../styles/CompanyStockInfo";
+import { Article, Heading, Img } from "../styles/CompanyStockInfo";
 import stocksImage from "../stocks_image.png";
 
 export default function Homepage() {
@@ -12,8 +8,8 @@ export default function Homepage() {
     <Article>
       <header>
         <Heading>
-          Keep track of Company Quotes with our useful categorised dropdown links above.
-          Click any Company Symbol to get a summary.
+          Keep track of Company Quotes with our useful categorised dropdown
+          links above. Click any Company Symbol to get a summary.
         </Heading>
       </header>
       <div>
@@ -22,4 +18,3 @@ export default function Homepage() {
     </Article>
   );
 }
-

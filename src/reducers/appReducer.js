@@ -1,6 +1,6 @@
 export function reducer(state, action) {
   switch (action.type) {
-    case 'storeResults':
+    case "storeResults":
       return {
         ...state,
         lists: {
@@ -12,20 +12,19 @@ export function reducer(state, action) {
           })
         }
       };
-    case 'selectedOption':
-      return { ...state, selectedOption: action.selectedOption  };
+    case "selectedOption":
+      return { ...state, selectedOption: action.selectedOption };
     default:
       return state;
   }
 }
 
-export function updateList({lists, results, listName}) {
-  if(lists[listName]) {
+export function updateList({ lists, results, listName }) {
+  if (lists[listName]) {
     return { ...lists[listName], list: results };
   }
 }
 
 export const formatName = listName => {
   return listName.toLowerCase().replace(/\s+/g, "");
-}
-
+};
