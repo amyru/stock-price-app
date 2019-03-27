@@ -20,6 +20,9 @@ export const H2 = styled.h2`
   font-weight: bold;
   letter-spacing: -0.02em;
   font-size: 2rem;
+  @media(max-width: 400px) {
+    font-size: 1.5rem;
+  }
 `;
 
 export const H3 = styled.h3`
@@ -34,4 +37,21 @@ export const Paragraph = styled.p`
   font-family: "Mercury Text G2 A", "Mercury Text G2 B", "Georgia", "Georgia", Cambria, Times New Roman, Times, serif;
   color: #46505a;
   font-size: 1rem;
+`;
+
+export const Img = styled.img`
+  height: 300px;
+  @media(max-width: 700px) {
+    height: 200px;
+  }
+`;
+
+export const Heading = styled(H3)`
+  max-width: 500px;
+  margin: auto;
+  text-align: justify;
+  font-size: 1rem;
+  padding: 2rem 0 2rem;
+  color: #0069a1;
+  font-weight: bold;
 `;
