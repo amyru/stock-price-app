@@ -10,10 +10,25 @@ type Props = {
 }
 
 const customStyles = {
-  container: styles => ({ ...styles, width: "100%", minWidth: "calc(700px/6)" }),
-  menu: styles => ({ ...styles, textAlign: "left" }),
-  control: styles => ({ ...styles, border: "none", alignItems: "left" }),
-  indicatorSeparator: styles => ({ ...styles, display: "none" }),
+  container: styles => ({ ...styles, width: "100%", '@media(max-width: 700px)': { position: "unset" } }),
+  menu: styles => ({ ...styles, textAlign: "left", '@media(max-width: 700px)': { left: 0 } }),
+  control: styles => {
+    return {
+      cursor: "default",
+      display: "flex",
+      flexWrap: "wrap",
+      justifyContent: "space-between",
+      minHeight: 38,
+      position: "relative",
+      transition: "all 100ms",
+      alignItems: "left",
+      border: "none",
+      '@media(max-width: 700px)': { fontSize: ".7rem" }
+    }
+  },
+  indicatorSeparator: styles => ({ display: "none" }),
+  dropdownIndicator: styles => ({ ...styles, '@media(max-width: 700px)': { display: "none" } }),
+  loadingIndicator: styles => ({ display: "none" })
 };
 
 export default function SymbolList({
