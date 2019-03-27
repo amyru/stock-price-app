@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { shallow, mount } from "enzyme";
 import SymbolList from "../SymbolList";
 import StockListNav from "../StockListNav";
-import { shallow, mount } from "enzyme";
+import { Nav } from "../../styles/StockListNav";
+import AppContext from "../../AppContext";
 
 const lists = {
   gainers: [
@@ -27,16 +29,25 @@ const lists = {
   mostactive: []
 };
 
+const mockContext = jest.fn();
+jest.mock('../../AppContext', () => ({
+  Consumer: ({ children }) => children(mockContext()),
+}));
+
 describe("StockListNav", () => {
+  beforeEach(() => {
+    mockContext.mockReset();  
+  });
+
   const wrapper = shallow(
-    <StockListNav
-      lists={lists}
-      storeResults={jest.fn()}
-      getStockInfo={jest.fn()}
-    />
+    <StockListNav />
   );
 
   it("renders SymbolList", () => {
     expect(wrapper.find(SymbolList)).toHaveLength(6);
   });
+
+  it("renders Nav", () => {
+    expect(wrapper.find(Nav)).toHaveLength(1);
+  })
 });

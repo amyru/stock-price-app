@@ -1,13 +1,12 @@
 // @flow
-import React, { useReducer, createContext } from "react";
+import React, { useReducer } from "react";
 import StockListNav from "./components/StockListNav";
 import CompanyStockInfo from "./components/CompanyStockInfo";
 import Homepage from "./components/Homepage";
+import AppContext from "./AppContext";
 import { initialState } from "./store/defaultState";
 import { reducer } from "./reducers/appReducer";
 import { GlobalStyle, AppContainer, Header } from "./styles/App";
-
-export const AppContext = createContext(null);
 
 export default function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
