@@ -8,7 +8,7 @@ export function reducer(state, action) {
           [formatName(action.listName)]: updateList({
             lists: state.lists,
             listName: formatName(action.listName),
-            results: action.results
+            symbols: action.symbols
           })
         }
       };
@@ -19,9 +19,9 @@ export function reducer(state, action) {
   }
 }
 
-export function updateList({ lists, results, listName }) {
+export function updateList({ lists, symbols, listName }) {
   if (lists[listName]) {
-    return { ...lists[listName], list: results };
+    return { ...lists[listName], list: symbols };
   }
 }
 

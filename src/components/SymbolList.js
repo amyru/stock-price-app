@@ -1,24 +1,23 @@
 // @flow
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import Select from "react-select";
-import { AppContext } from "../App";
 import { getSymbolList, getCompanyDescription } from "../services/api";
 import { customStyles } from "../styles/SymbolList";
 
 type Props = {
-  list: Object,
+  actions: object,
+  list: object,
   listName: string
 };
 
-export default function SymbolList({ list, listName }: Props) {
+export default function SymbolList({ actions, list, listName }: Props) {
   const [isLoading, toggleLoading] = useState(false);
-  const { dispatch } = useContext(AppContext);
 
   const getOptions = async e => {
     if (list.length > 0) return null;
     await toggleLoading(true);
-    const results = await getSymbolList({ listName });
-    await dispatch({ type: "storeResults", listName, results });
+    const symbols = await getSymbolList({ listName });
+    await actions.storeSymbols({listName, symbols});
     await toggleLoading(false);
   };
 
@@ -26,10 +25,7 @@ export default function SymbolList({ list, listName }: Props) {
     const description = await getCompanyDescription({
       symbol: selectedOption.symbol
     });
-    await dispatch({
-      type: "selectedOption",
-      selectedOption: { ...selectedOption, description }
-    });
+    await actions.selectOption({ ...selectedOption, description });
   };
 
   const noResults = () => "No current activity, please check back later";

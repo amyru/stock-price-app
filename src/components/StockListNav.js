@@ -1,16 +1,20 @@
 // @flow
-import React, { useContext } from "react";
-import { AppContext } from "../App";
+import React from "react";
 import SymbolList from "./SymbolList";
 import { Nav } from "../styles/StockListNav";
 
-export default function StockListNav() {
-  const {
-    state: { lists }
-  } = useContext(AppContext);
+type Props = {
+  actions: object,
+  lists: object
+}
+
+export default function StockListNav({
+  actions,
+  lists
+}: Props) {
 
   const renderSymbolList = list => {
-    return <SymbolList key={list.listName} {...list} />;
+    return <SymbolList key={list.listName} actions={actions} {...list} />;
   };
 
   return (

@@ -3,12 +3,18 @@ import React from "react";
 import { Article, H2, H3, Paragraph } from "../styles/CompanyStockInfo";
 
 type Props = {
-  company: Object
-};
+  companyName: string,
+  description: string,
+  latestPrice: number,
+  symbol: string
+}
 
-export default function CompanyStockInfo({ company }: Props) {
-  const { companyName, description, latestPrice, symbol } = company;
-
+export default function CompanyStockInfo({
+  companyName,
+  description,
+  latestPrice,
+  symbol
+}: Props) {
   const renderDescription = () => {
     if (!description) return null;
     return (
