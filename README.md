@@ -1,5 +1,5 @@
 ## Stock Price App
-Keep track of Company Quotes with current stock price and categorised symbols.
+Keep track of company quotes with current stock price. Easily research best or worst performing current companies.
 
 ### Installation
 
@@ -10,3 +10,7 @@ Keep track of Company Quotes with current stock price and categorised symbols.
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+### Testing
+- `$ npm test`
+- `$ a` to run all tests
