@@ -7,6 +7,14 @@ import { initialState } from "./store/defaultState";
 import { reducer } from "./reducers/appReducer";
 import { GlobalStyle, AppContainer, Header } from "./styles/App";
 
+export  const storeSymbols = async({listName, symbols}) => {
+    await dispatch({ type: "storeResults", listName, symbols });
+  };
+
+export  const selectOption = async selectedOption => {
+    await dispatch({ type: "selectedOption", selectedOption });
+  };
+
 export default function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
 

@@ -24,7 +24,7 @@ describe("getSymbol", () => {
     fetch.mockResponse(JSON.stringify(response));
 
     const result = await api.getSymbolList({
-      gainers: "gainers"
+      listName: "Gainers"
     });
 
     expect(result).toEqual(response);

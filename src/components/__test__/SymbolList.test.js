@@ -19,17 +19,15 @@ const list = [
     companyName: "Sorrento Therapeutics Inc."
   }
 ];
-const getOptions = jest.fn();
+
+const actions = { storeSymbols: jest.fn(), getOptions: jest.fn() };
 
 describe("SymbolList", () => {
   const wrapper = shallow(
     <SymbolList
       list={list}
       listName={"Gainers"}
-      apiList={"gainers"}
-      storeResults={jest.fn()}
-      noResults={"no activity"}
-      getStockInfo={jest.fn()}
+      actions={actions}
     />
   );
 

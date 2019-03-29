@@ -1,19 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { mount, shallow } from "enzyme";
-import App from '../App';
+import App, {selectOption} from '../App';
 import CompanyStockInfo from "../components/CompanyStockInfo";
 import StockListNav from "../components/StockListNav";
 import { initialState } from "../store/defaultState";
 
 describe("App", () => {
   const company = {
-      symbol: "GE",
-      label: "GE",
-      value: "GE",
-      latestPrice: 10.2,
-      companyName: "General Electric Company",
-      description: "Company Description"
+    symbol: "GE",
+    label: "GE",
+    value: "GE",
+    latestPrice: 10.2,
+    companyName: "General Electric Company",
+    description: "Company Description"
   };
   const wrapper = shallow(<App />);
 
@@ -29,5 +29,10 @@ describe("App", () => {
 
   it("doesn't render companyInfo", () => {
     expect(wrapper.find(CompanyStockInfo)).toHaveLength(0);
+  })
+
+  it("doesn't render companyInfo", () => {
+    console.log(wrapper.props());
+    //expect(wrapper.find(CompanyStockInfo)).toHaveLength(1);
   })
 });
