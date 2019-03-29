@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { shallow } from "enzyme";
-import App, { selectOption } from "../App";
+import App from "../App";
 import CompanyStockInfo from "../components/CompanyStockInfo";
 import StockListNav from "../components/StockListNav";
 
