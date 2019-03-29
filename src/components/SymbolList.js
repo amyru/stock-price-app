@@ -47,4 +47,3 @@ export default function SymbolList({ actions, list, listName }: Props) {
     />
   );
 }
-SymbolList.defaultProps = { noResults: "No Results" };

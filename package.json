@@ -12,7 +12,6 @@
     "react-dom": "^16.8.4",
     "react-scripts": "2.1.8",
     "react-select": "^2.4.2",
-    "react-test-renderer": "^16.8.4",
     "styled-components": "^4.2.0",
     "whatwg-fetch": "^3.0.0"
   },
@@ -35,8 +34,6 @@
   ],
   "devDependencies": {
     "babel-plugin-macros": "^2.5.0",
-    "jest-fetch-mock": "^2.1.1",
-    "react-hooks-testing-library": "^0.3.8",
-    "react-testing-library": "^6.0.3"
+    "jest-fetch-mock": "^2.1.1"
   }
 }
