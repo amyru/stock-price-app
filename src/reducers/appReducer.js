@@ -1,6 +1,17 @@
+import {useReducer} from 'react';
+import { initialState } from "../store/defaultState";
+
+export const mapDispatch = dispatch => ({
+  storeSymbols: async payload => {
+    debugger
+    await dispatch({ type: "storeSymbols", ...payload })
+  },
+  selectOption: payload => dispatch({ type: "selectedOption", ...payload })
+})
+
 export function reducer(state, action) {
   switch (action.type) {
-    case "storeResults":
+    case "storeSymbols":
       return {
         ...state,
         lists: {
@@ -27,4 +38,8 @@ export function updateList({ lists, symbols, listName }) {
 
 export const formatName = listName => {
   return listName.toLowerCase().replace(/\s+/g, "");
+};
+
+export const getReducer = () => {
+  return useReducer(reducer, initialState);
 };

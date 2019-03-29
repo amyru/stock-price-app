@@ -1,30 +1,14 @@
 // @flow
-import React, { useReducer } from "react";
+import React from "react";
 import StockListNav from "./components/StockListNav";
 import CompanyStockInfo from "./components/CompanyStockInfo";
 import Homepage from "./components/Homepage";
-import { initialState } from "./store/defaultState";
-import { reducer } from "./reducers/appReducer";
 import { GlobalStyle, AppContainer, Header } from "./styles/App";
-
-export  const storeSymbols = async({listName, symbols}) => {
-    await dispatch({ type: "storeResults", listName, symbols });
-  };
-
-export  const selectOption = async selectedOption => {
-    await dispatch({ type: "selectedOption", selectedOption });
-  };
+import { mapDispatch, getReducer } from "./reducers/appReducer";
 
 export default function App() {
-  const [state, dispatch] = useReducer(reducer, initialState);
-
-  const storeSymbols = async({listName, symbols}) => {
-    await dispatch({ type: "storeResults", listName, symbols });
-  };
-
-  const selectOption = async selectedOption => {
-    await dispatch({ type: "selectedOption", selectedOption });
-  };
+  const [state, dispatch] = getReducer();
+  const actions = mapDispatch(dispatch);
 
   const renderCompanyInfo = () => {
     if (Object.keys(state.selectedOption).length === 0) return null;
@@ -45,7 +29,7 @@ export default function App() {
       </Header>
       <StockListNav
         lists={state.lists}
-        actions={{storeSymbols, selectOption}}
+        actions={actions}
       />
       {renderCompanyInfo()}
       {renderHomepage()}

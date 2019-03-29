@@ -25,7 +25,7 @@ export default function SymbolList({ actions, list, listName }: Props) {
     const description = await getCompanyDescription({
       symbol: selectedOption.symbol
     });
-    await actions.selectOption({ ...selectedOption, description });
+    await actions.selectOption({ selectedOption: {...selectedOption, description }});
   };
 
   const noResults = () => "No current activity, please check back later";
