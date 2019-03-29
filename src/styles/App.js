@@ -1,9 +1,10 @@
 import styled, { createGlobalStyle } from "styled-components/macro";
+import * as color from "./colors";
 
 export const GlobalStyle = createGlobalStyle`
   html { height: 100%; }
   body {
-    background: #e6e6e8;
+    background: ${color.lightGrey};
     height: 100%;
     margin: 0;
     padding: 0;
@@ -22,12 +23,12 @@ export const AppContainer = styled.div`
 `;
 
 export const Header = styled.header`
-  background-color: #fff;
+  background-color: ${color.white};
   min-height: 5vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: #0069a1;
+  color: ${color.ceruleanBlue};
 `;

@@ -1,3 +1,5 @@
+import * as color from "./colors";
+
 export const customStyles = {
   container: styles => ({
     ...styles,
@@ -26,11 +28,11 @@ export const customStyles = {
     ...styles,
     textAlign: "left",
     borderRadius: "4px",
-    color: "#46505a",
+    color: `${color.celloBlack}`,
     "@media(max-width: 700px)": { left: 0 }
   }),
   placeholder: styles => ({
     ...styles,
-    color: "#46505a"
+    color: `${color.celloBlack}`
   })
 };

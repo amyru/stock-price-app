@@ -22,6 +22,8 @@ const list = [
 
 const actions = { storeSymbols: jest.fn(), getOptions: jest.fn() };
 
+const handleChange = jest.fn();
+
 describe("SymbolList", () => {
   const wrapper = shallow(
     <SymbolList

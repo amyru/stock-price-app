@@ -1,11 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { mount, shallow } from "enzyme";
+import { shallow } from "enzyme";
 import App, {selectOption} from '../App';
 import CompanyStockInfo from "../components/CompanyStockInfo";
 import StockListNav from "../components/StockListNav";
-import { initialState } from "../store/defaultState";
-import { mapDispatch, getReducer } from "../reducers/appReducer";
 
 describe("App", () => {
   const company = {
@@ -30,14 +28,5 @@ describe("App", () => {
 
   it("doesn't render companyInfo", () => {
     expect(wrapper.find(CompanyStockInfo)).toHaveLength(0);
-  })
-
-  it("doesn't render companyInfo", () => {
-    const wrapper = mount(<App />);
-    const [state, dispatch] = getReducer();
-    const actions = mapDispatch(dispatch);
-    actions.selectOption({selectOption: company })
-    console.log(wrapper.props());
-    //expect(wrapper.find(CompanyStockInfo)).toHaveLength(1);
   })
 });
