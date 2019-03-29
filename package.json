@@ -22,7 +22,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "flow": "flow",
-    "format": "prettier --single-quote --trailing-comma es5 --write \"{app,__{tests,mocks}__}/**/*.js\""
+    "format": "prettier --trailing-comma es5 --write \"src/**/*.js\""
   },
   "eslintConfig": {
     "extends": "react-app"
