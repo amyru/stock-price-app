@@ -27,10 +27,7 @@ export default function App() {
       <Header>
         <h1>Stock Pricing App</h1>
       </Header>
-      <StockListNav
-        lists={state.lists}
-        actions={actions}
-      />
+      <StockListNav lists={state.lists} actions={actions} />
       {renderCompanyInfo()}
       {renderHomepage()}
     </AppContainer>

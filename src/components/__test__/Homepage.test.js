@@ -6,9 +6,7 @@ import stocksImage from "../../stocks_image.png";
 
 describe("Homepage", () => {
   describe("render homepage", () => {
-    const wrapper = shallow(
-      <Homepage />
-    )
+    const wrapper = shallow(<Homepage />);
 
     it("renders company info card", () => {
       expect(wrapper.find(Article)).toHaveLength(1);
@@ -16,4 +14,4 @@ describe("Homepage", () => {
       expect(wrapper.find(Img).prop("src")).toBe(stocksImage);
     });
   });
-})
+});

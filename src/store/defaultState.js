@@ -5,7 +5,7 @@ export const initialState = {
     infocus: { listName: "In Focus", list: [] },
     iexpercent: { listName: "IEX Percent", list: [] },
     iexvolume: { listName: "IEX Volume", list: [] },
-    losers: { listName: "Losers", list: [] }
+    losers: { listName: "Losers", list: [] },
   },
-  selectedOption: {}
+  selectedOption: {},
 };

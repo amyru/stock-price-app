@@ -1,12 +1,12 @@
-import {useReducer} from 'react';
+import { useReducer } from "react";
 import { initialState } from "../store/defaultState";
 
 export const mapDispatch = dispatch => ({
   storeSymbols: async payload => {
-    await dispatch({ type: "storeSymbols", ...payload })
+    await dispatch({ type: "storeSymbols", ...payload });
   },
-  selectOption: payload => dispatch({ type: "selectedOption", ...payload })
-})
+  selectOption: payload => dispatch({ type: "selectedOption", ...payload }),
+});
 
 export function reducer(state, action) {
   switch (action.type) {
@@ -18,9 +18,9 @@ export function reducer(state, action) {
           [formatName(action.listName)]: updateList({
             lists: state.lists,
             listName: formatName(action.listName),
-            symbols: action.symbols
-          })
-        }
+            symbols: action.symbols,
+          }),
+        },
       };
     case "selectedOption":
       return { ...state, selectedOption: action.selectedOption };

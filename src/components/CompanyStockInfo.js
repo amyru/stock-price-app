@@ -6,14 +6,14 @@ type Props = {
   companyName: string,
   description: string,
   latestPrice: number,
-  symbol: string
-}
+  symbol: string,
+};
 
 export default function CompanyStockInfo({
   companyName,
   description,
   latestPrice,
-  symbol
+  symbol,
 }: Props) {
   const renderDescription = () => {
     if (!description) return null;

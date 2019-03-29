@@ -9,15 +9,15 @@ const list = [
     label: "GE",
     value: "GE",
     latestPrice: 10.2,
-    companyName: "General Electric Company"
+    companyName: "General Electric Company",
   },
   {
     symbol: "SRNE",
     label: "SRNE",
     value: "SRNE",
     latestPrice: 11.2,
-    companyName: "Sorrento Therapeutics Inc."
-  }
+    companyName: "Sorrento Therapeutics Inc.",
+  },
 ];
 
 const actions = { storeSymbols: jest.fn(), getOptions: jest.fn() };
@@ -26,11 +26,7 @@ const handleChange = jest.fn();
 
 describe("SymbolList", () => {
   const wrapper = shallow(
-    <SymbolList
-      list={list}
-      listName={"Gainers"}
-      actions={actions}
-    />
+    <SymbolList list={list} listName={"Gainers"} actions={actions} />
   );
 
   it("renders the Select dropdown", () => {

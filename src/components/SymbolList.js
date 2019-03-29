@@ -7,7 +7,7 @@ import { customStyles } from "../styles/SymbolList";
 type Props = {
   actions: object,
   list: object,
-  listName: string
+  listName: string,
 };
 
 export default function SymbolList({ actions, list, listName }: Props) {
@@ -17,15 +17,17 @@ export default function SymbolList({ actions, list, listName }: Props) {
     if (list.length > 0) return null;
     await toggleLoading(true);
     const symbols = await getSymbolList({ listName });
-    await actions.storeSymbols({listName, symbols});
+    await actions.storeSymbols({ listName, symbols });
     await toggleLoading(false);
   };
 
   const handleChange = async selectedOption => {
     const description = await getCompanyDescription({
-      symbol: selectedOption.symbol
+      symbol: selectedOption.symbol,
     });
-    await actions.selectOption({ selectedOption: {...selectedOption, description }});
+    await actions.selectOption({
+      selectedOption: { ...selectedOption, description },
+    });
   };
 
   const noResults = () => "No current activity, please check back later";

@@ -8,15 +8,15 @@ describe("getSymbol", () => {
         label: "GE",
         value: "GE",
         latestPrice: 10.2,
-        companyName: "General Electric Company"
+        companyName: "General Electric Company",
       },
       {
         symbol: "SRNE",
         label: "SRNE",
         value: "SRNE",
         latestPrice: 11.2,
-        companyName: "Sorrento Therapeutics Inc."
-      }
+        companyName: "Sorrento Therapeutics Inc.",
+      },
     ];
 
     expect.assertions(1);
@@ -24,7 +24,7 @@ describe("getSymbol", () => {
     fetch.mockResponse(JSON.stringify(response));
 
     const result = await api.getSymbolList({
-      listName: "Gainers"
+      listName: "Gainers",
     });
 
     expect(result).toEqual(response);
@@ -36,7 +36,7 @@ describe("getCompanyDescription", () => {
     const response = {
       symbol: "GE",
       companyName: "General Electric Company",
-      description: "Company description"
+      description: "Company description",
     };
 
     expect.assertions(1);
@@ -44,7 +44,7 @@ describe("getCompanyDescription", () => {
     fetch.mockResponse(JSON.stringify(response));
 
     const result = await api.getCompanyDescription({
-      symbol: "GE"
+      symbol: "GE",
     });
 
     expect(result).toEqual(response.description);
@@ -56,7 +56,7 @@ describe("getCompany", () => {
     const response = {
       symbol: "GE",
       companyName: "General Electric Company",
-      description: "Company description"
+      description: "Company description",
     };
 
     expect.assertions(1);
@@ -64,7 +64,7 @@ describe("getCompany", () => {
     fetch.mockResponse(JSON.stringify(response));
 
     const result = await api.getCompany({
-      symbol: "GE"
+      symbol: "GE",
     });
 
     expect(result).toEqual(response);

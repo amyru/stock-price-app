@@ -19,7 +19,8 @@ export const Article = styled.article`
 
 export const H2 = styled.h2`
   color: ${color.ceruleanBlue};
-  font-family: "Mercury Text G2 A", "Mercury Text G2 B", "Georgia", "Georgia", "Cambria", "Times New Roman", "Times", "serif";
+  font-family: "Mercury Text G2 A", "Mercury Text G2 B", "Georgia", "Georgia",
+    "Cambria", "Times New Roman", "Times", "serif";
   font-size: 2rem;
   font-weight: bold;
   letter-spacing: -0.02em;
@@ -30,21 +31,23 @@ export const H2 = styled.h2`
 
 export const H3 = styled.h3`
   color: ${color.ceruleanBlue};
-  font-family: "Mercury Text G2 A", "Mercury Text G2 B", "Georgia", "Georgia", "Cambria", "Times New Roman", "Times", "serif";
+  font-family: "Mercury Text G2 A", "Mercury Text G2 B", "Georgia", "Georgia",
+    "Cambria", "Times New Roman", "Times", "serif";
   font-weight: bold;
   letter-spacing: -0.02em;
   font-size: 1rem;
 `;
 
 export const Paragraph = styled.p`
-  font-family: "Mercury Text G2 A", "Mercury Text G2 B", "Georgia", "Georgia", "Cambria", "Times New Roman", "Times", "serif";
+  font-family: "Mercury Text G2 A", "Mercury Text G2 B", "Georgia", "Georgia",
+    "Cambria", "Times New Roman", "Times", "serif";
   color: ${color.celloBlack};
   font-size: 1rem;
 `;
 
 export const Img = styled.img`
   height: ${rem(300)};
-  ${mediaSmall}{
+  ${mediaSmall} {
     height: ${rem(200)};
   }
 `;

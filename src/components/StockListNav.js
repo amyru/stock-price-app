@@ -5,14 +5,10 @@ import { Nav } from "../styles/StockListNav";
 
 type Props = {
   actions: object,
-  lists: object
-}
+  lists: object,
+};
 
-export default function StockListNav({
-  actions,
-  lists
-}: Props) {
-
+export default function StockListNav({ actions, lists }: Props) {
   const renderSymbolList = list => {
     return <SymbolList key={list.listName} actions={actions} {...list} />;
   };

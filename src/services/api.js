@@ -28,7 +28,7 @@ const formatResults = results => {
       latestPrice: quote.latestPrice,
       symbol: quote.symbol,
       label: quote.symbol,
-      value: quote.symbol
+      value: quote.symbol,
     };
   });
 };

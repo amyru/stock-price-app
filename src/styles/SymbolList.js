@@ -4,7 +4,7 @@ export const customStyles = {
   container: styles => ({
     ...styles,
     width: "100%",
-    "@media(max-width: 700px)": { position: "unset" }
+    "@media(max-width: 700px)": { position: "unset" },
   }),
   control: () => ({
     cursor: "default",
@@ -16,11 +16,11 @@ export const customStyles = {
     transition: "all 100ms",
     alignItems: "left",
     border: "none",
-    "@media(max-width: 700px)": { fontSize: ".7rem" }
+    "@media(max-width: 700px)": { fontSize: ".7rem" },
   }),
   dropdownIndicator: styles => ({
     ...styles,
-    "@media(max-width: 700px)": { display: "none" }
+    "@media(max-width: 700px)": { display: "none" },
   }),
   indicatorSeparator: () => ({ display: "none" }),
   loadingIndicator: () => ({ display: "none" }),
@@ -29,10 +29,10 @@ export const customStyles = {
     textAlign: "left",
     borderRadius: "4px",
     color: `${color.celloBlack}`,
-    "@media(max-width: 700px)": { left: 0 }
+    "@media(max-width: 700px)": { left: 0 },
   }),
   placeholder: styles => ({
     ...styles,
-    color: `${color.celloBlack}`
-  })
+    color: `${color.celloBlack}`,
+  }),
 };
