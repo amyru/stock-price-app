@@ -26,7 +26,17 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - react-select for the dropdown component
 - Styled Components
 
-#### The component structure is as follows
+#### The main component relationship structure is as follows:
+```
+<App>
+  <StockListNav>
+    <SymbolList>
+      <Select>
+  <CompanyStockInfo>
+  <Homepage>
+```
+
+#### You should see the following file structure, on cloning the app:
 ```
 |~stock-price-app/
 | |~public/
