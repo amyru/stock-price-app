@@ -5,8 +5,8 @@ import { getSymbolList, getCompanyDescription } from "../services/api";
 import { customStyles } from "../styles/SymbolList";
 
 type Props = {
-  actions: object,
-  list: object,
+  actions: Object,
+  list: Object,
   listName: string,
 };
 
@@ -21,7 +21,7 @@ export default function SymbolList({ actions, list, listName }: Props) {
     await toggleLoading(false);
   };
 
-  const handleChange = async selectedOption => {
+  const handleChange = async (selectedOption: Object) => {
     const description = await getCompanyDescription({
       symbol: selectedOption.symbol,
     });

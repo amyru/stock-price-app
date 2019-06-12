@@ -2,9 +2,7 @@ import { useReducer } from "react";
 import { initialState } from "../store/defaultState";
 
 export const mapDispatch = dispatch => ({
-  storeSymbols: async payload => {
-    await dispatch({ type: "storeSymbols", ...payload });
-  },
+  storeSymbols: payload => dispatch({ type: "storeSymbols", ...payload }),
   selectOption: payload => dispatch({ type: "selectedOption", ...payload }),
 });
 

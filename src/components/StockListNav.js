@@ -4,8 +4,8 @@ import SymbolList from "./SymbolList";
 import { Nav } from "../styles/StockListNav";
 
 type Props = {
-  actions: object,
-  lists: object,
+  actions: Object,
+  lists: Object,
 };
 
 export default function StockListNav({ actions, lists }: Props) {

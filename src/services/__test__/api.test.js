@@ -1,6 +1,6 @@
 import * as api from "../api";
 
-describe("getSymbol", () => {
+describe("getSymbolList", () => {
   it("fetches an array of companies with symbols and price", async () => {
     const response = [
       {
